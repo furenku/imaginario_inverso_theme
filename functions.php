@@ -1,5 +1,8 @@
 <?php
 
+include_once 'backend/cpt.php';
+include_once 'backend/metaboxes.php';
+
 
 function enqueue_assets() {
 	
