@@ -1,6 +1,21 @@
 @import "settings";
 @import "foundation";
 
+@import "layout_utils";
+
+#text,
+#map {
+	background-color: #FFF;
+	z-index: 9999;
+	border: 3px solid red;
+}
+
+
+.slick {
+	.slide {
+		//height: 300px;
+	}
+}
 // Or selectively include components
 // @import
 //   "foundation/components/accordion",
