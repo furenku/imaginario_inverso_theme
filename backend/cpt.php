@@ -1,5 +1,25 @@
 <?php
 
+
+function admin_leaflet() {
+
+	//if( is_admin() ) {
+
+
+	    wp_enqueue_script( 'jquery' );
+	    
+	    wp_enqueue_script( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.js');
+	    wp_enqueue_style( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.css');
+
+		wp_enqueue_script('admin_leaflet',get_stylesheet_directory_uri(). '/backend/js/admin_leaflet.js', array('jquery', 'leaflet'));
+
+	//}
+
+}
+
+add_action('admin_enqueue_scripts', 'admin_leaflet');
+
+
 add_action( 'init', 'codex_rock_init' );
 /**
  * Register a rock post type.

@@ -23,7 +23,6 @@
 
 
 
-
     <div id="map" class="abs h_50vh small-2 columns">
       Mapa
     </div>

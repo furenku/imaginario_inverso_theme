@@ -10,10 +10,10 @@ function rock_add_meta_box() {
 	foreach ( $screens as $screen ) {
 
 		add_meta_box(
-			'rock_sectionid',
+			'rock_metabox',
 			__( 'Rock location', 'rock_textdomain' ),
 			'rock_meta_box_callback',
-			$screen
+			$screen, 'advanced', 'high'
 		);
 	}
 }
@@ -36,15 +36,17 @@ function rock_meta_box_callback( $post ) {
 	$rock_longitude = get_post_meta( $post->ID, 'rock_longitude', true );
 	$rock_latitude = get_post_meta( $post->ID, 'rock_latitude', true );
 
+	echo '<div id="admin_rock_map" style="width:100%; height:500px; padding:1px;"></div>';
+
 	echo '<label for="rock_longitude">';
 	_e( 'Longitude', 'rock_textdomain' );
 	echo '</label> ';
-	echo '<input type="number" id="rock_longitude" name="rock_longitude" value="' . esc_attr( $rock_longitude ) . '" size="25" step="0.0001" />';
+	echo '<input type="number" id="rock_longitude" name="rock_longitude" value="' . esc_attr( $rock_longitude ) . '" size="25" step="0.000000000000001" />';
 
 	echo '<label for="rock_latitude">';
 	_e( 'Latitude', 'rock_textdomain' );
 	echo '</label> ';
-	echo '<input type="number" id="rock_latitude" name="rock_latitude" value="' . esc_attr( $rock_latitude ) . '" size="25" step="0.0001"/>';
+	echo '<input type="number" id="rock_latitude" name="rock_latitude" value="' . esc_attr( $rock_latitude ) . '" size="25" step="0.000000000000001"/>';
 }
 
 /**
