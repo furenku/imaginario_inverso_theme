@@ -1,8 +1,28 @@
 {
-  "name": "foundation-compass-app",
+  "name": "imaginario_inverso_theme",
   "version": "0.0.1",
-  "private": "true",
+  "homepage": "https://github.com/furenku/imaginario_inverso_theme",
+  "authors": [
+    "furenku <furenku@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "bower": "*",
+    "fastclick": ">=0.6.11",
+    "foundation": "zurb/bower-foundation",
+    "imgLiquid": "~0.9.944",
+    "install": "~1.0.4",
+    "jquery-ui": "~1.11.4",
+    "leaflet.locatecontrol": "~0.45.1",
+    "leaflet": "~0.7.7",
+    "slick.js": "~1.5.8"
   }
 }
