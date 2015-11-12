@@ -58,23 +58,23 @@ jQuery(document).ready(function($){
 		map.on('click', onMapClick);
 
 
-		function onLocationFound(e) {
-	    	var radius = e.accuracy / 2;
+		// function onLocationFound(e) {
+	 //    	var radius = e.accuracy / 2;
 
-		    L.marker(e.latlng).addTo(map)
-		        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+		//     L.marker(e.latlng).addTo(map)
+		//         .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
-		    L.circle(e.latlng, radius).addTo(map);
-		}
+		//     L.circle(e.latlng, radius).addTo(map);
+		// }
 
-		map.on('locationfound', onLocationFound);
+		// map.on('locationfound', onLocationFound);
 
 
-		function onLocationError(e) {
-		    alert(e.message);
-		}
+		// function onLocationError(e) {
+		//     alert(e.message);
+		// }
 
-		map.on('locationerror', onLocationError);
+		// map.on('locationerror', onLocationError);
 
 
 

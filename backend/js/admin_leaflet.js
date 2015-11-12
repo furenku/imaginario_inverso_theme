@@ -63,7 +63,7 @@ var lc = L.control.locate().addTo(map);
 // request location update and set location
 lc.start();
 
-alert(lc);
+console.log(lc);
 
 
 
