@@ -64,7 +64,7 @@ var lc = L.control.locate().addTo(map);
 // request location update and set location
 lc.start();
 
-
+alert(lc);
 		function onLocationFound(e) {
 	    	var radius = e.accuracy / 2;
 
