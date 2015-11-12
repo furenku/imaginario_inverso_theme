@@ -56,4 +56,15 @@ function onMapClick(e) {
 map.on('click', onMapClick);
 
 
+
+// create control and add to map
+var lc = L.control.locate().addTo(map);
+
+// request location update and set location
+lc.start();
+
+alert(lc);
+
+
+
 });
