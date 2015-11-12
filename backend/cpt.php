@@ -8,8 +8,10 @@ function admin_leaflet() {
 
 	    wp_enqueue_script( 'jquery' );
 	    
-	    wp_enqueue_script( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.js');
+	    wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/bower_components/font-awesome/css/font-awesome.min.css');
+	    
 	    wp_enqueue_style( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.css');
+	    wp_enqueue_script( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.js');
 
 	    wp_enqueue_style( 'leaflet-locate', get_stylesheet_directory_uri() . '/bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.css');
 	    wp_enqueue_script( 'leaflet-locate', get_stylesheet_directory_uri() . '/bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js', array('leaflet'));

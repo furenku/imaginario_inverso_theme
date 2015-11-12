@@ -1,3 +1,6 @@
+var locationFound = false;
+
+
 jQuery(document).ready(function($) {
 
 var map = L.map('admin_rock_map').setView([30, -105], 6);
@@ -36,20 +39,25 @@ if( $('#rock_longitude').val() != ""  && $('#rock_latitude').val() != "" ) {
 
 function onMapClick(e) {
 	
-    map.removeLayer(markers);
+
+	if( ! locationFound ) {
+
+	    map.removeLayer(markers);
 
 
-	markers = new L.FeatureGroup();
+		markers = new L.FeatureGroup();
 
-	markers.addTo(map);
+		markers.addTo(map);
 
-	marker = L.marker([ e.latlng.lat, e.latlng.lng ])
-		.bindPopup("Rock!").openPopup();
+		marker = L.marker([ e.latlng.lat, e.latlng.lng ])
+			.bindPopup(  e.latlng.lat + " : " + e.latlng.lng ).openPopup();
 
-	markers.addLayer(marker);
+		markers.addLayer(marker);
 
-	$('#rock_longitude').val( e.latlng.lng );
-	$('#rock_latitude').val( e.latlng.lat );
+		$('#rock_longitude').val( e.latlng.lng );
+		$('#rock_latitude').val( e.latlng.lat );
+
+	}
 
 }
 
@@ -58,13 +66,50 @@ map.on('click', onMapClick);
 
 
 // create control and add to map
-var lc = L.control.locate().addTo(map);
+var lc = L.control.locate({
+	icon: 'fa fa-map-marker',
+	markerClass: L.marker,
+	follow: true,
+    layer: markers,
+    position: 'topleft'
+
+}).addTo(map);
 
 // request location update and set location
-lc.start();
+//lc.start();
 
-console.log(lc);
 
+
+
+
+		function onLocationFound(e) {
+
+			locationFound = true;
+			
+			map.removeLayer(markers);
+
+	    	var radius = e.accuracy / 2;
+
+			$('#rock_longitude').val( e.latlng.lng );
+			$('#rock_latitude').val( e.latlng.lat );
+
+		}
+
+		map.on('locationfound', onLocationFound);
+
+
+		function onLocationError(e) {
+		    alert(e.message);
+		}
+
+		map.on('locationerror', onLocationError);
+
+
+		map.on('stopfollowing', function() {
+
+		    locationFound = false;
+		    map.off('dragstart', lc._stopFollowing, lc);
+		});
 
 
 });
