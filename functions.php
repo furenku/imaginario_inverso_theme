@@ -11,6 +11,7 @@ function enqueue_assets() {
     wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/bower_components/slick.js/slick/slick.css');
     wp_enqueue_style( 'slick-theme', get_stylesheet_directory_uri() . '/bower_components/slick.js/slick/slick-theme.css');
     wp_enqueue_style( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.css');
+    wp_enqueue_style( 'leaflet-locate', get_stylesheet_directory_uri() . '/bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.css');
 
 
     wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/bower_components/modernizr/modernizr.js');
@@ -26,6 +27,7 @@ function enqueue_assets() {
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/bower_components/slick.js/slick/slick.min.js');
     
     wp_enqueue_script( 'leaflet', get_stylesheet_directory_uri() . '/bower_components/leaflet/dist/leaflet.js');
+    wp_enqueue_script( 'leaflet-control', get_stylesheet_directory_uri() . '/bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
 
     wp_enqueue_script( 'utils', get_stylesheet_directory_uri() . '/js/utils.js', array('jquery') );
     wp_enqueue_script( 'imaginario', get_stylesheet_directory_uri() . '/js/imaginario.js', array('utils') );

@@ -58,6 +58,12 @@ jQuery(document).ready(function($){
 		map.on('click', onMapClick);
 
 
+// create control and add to map
+var lc = L.control.locate().addTo(map);
+
+// request location update and set location
+lc.start();
+
 
 		function onLocationFound(e) {
 	    	var radius = e.accuracy / 2;
@@ -70,7 +76,6 @@ jQuery(document).ready(function($){
 
 		map.on('locationfound', onLocationFound);
 
-		Excellent! But it would also be nice to show an error message if the geolocation failed:
 
 		function onLocationError(e) {
 		    alert(e.message);
